@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { css } from "@emotion/css";
+import HoverVideoPlayer from "react-hover-video-player";
 
-function App() {
+const bigBuckBunnySrc =
+  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+
+    <div>
+       <h1>Hover Video Player</h1>
+    <HoverVideoPlayer
+      videoSrc={bigBuckBunnySrc}
+      pausedOverlay={
+        <div
+          className={css`
+            background-color: DarkSeaGreen;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 99%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          `}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <div
+            className={css`
+              font-family: sans-serif;
+              text-align: center;
+            `}
+          >
+            <h1>The video is paused.</h1>
+            <p>Hover to play!</p>
+          </div>
+        </div>
+      }
+    />
+</div>
   );
 }
-
-export default App;
